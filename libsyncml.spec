@@ -2,17 +2,20 @@
 %define libname %mklibname syncml %libmajor
 
 Name:		libsyncml
-Version:	0.4.2
+Version:	0.4.4
 Release:	%mkrel 1
 Summary:	C library implementation of the SyncML protocol
 License:	LGPL
 Group:		System/Libraries
-Source:		svn://svn.opensync.org/libsyncml/trunk/%{name}-%{version}.tar.gz
-URL:		http://www.opensync.org/wiki/syncml-guide
-BuildRequires:	wbxml2-devel openobex-devel libsoup-devel > 2.2.7-1mdk
+URL:		http://libsyncml.opensync.org/
+Source:		svn://svn.opensync.org/libsyncml/trunk/%{name}-%{version}.tar.bz2
+Patch:      %{name}-0.4.4-cflags.patch
+BuildRequires:	wbxml2-devel
+BuildRequires:	openobex-devel
+BuildRequires:	libsoup-devel > 2.2.7-1mdk
 BuildRequires:	bluez-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 Requires:	%libname = %version
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 C library implementation of the SyncML protocol
@@ -43,10 +46,11 @@ library implementation of SyncML
 
 %prep
 %setup -q
+%patch -p 1
 
 %build
-autoreconf -sfi
-%configure
+autoreconf
+%configure2_5x
 %make
 
 %install
@@ -63,6 +67,7 @@ rm -Rf %{buildroot}
 %files
 %defattr(-,root,root)
 %{_bindir}/syncml-http-server
+%{_bindir}/syncml-http-client
 %{_bindir}/syncml-obex-client
 %{_mandir}/man1/syncml-http-server.1*
 %{_mandir}/man1/syncml-obex-client.1*
@@ -77,5 +82,3 @@ rm -Rf %{buildroot}
 %{_libdir}/*.so
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/libsyncml*.pc
-
-
