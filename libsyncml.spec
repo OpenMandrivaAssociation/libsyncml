@@ -1,9 +1,10 @@
 %define libmajor 0
 %define libname %mklibname syncml %libmajor
+%define develname %mklibname syncml -d
 
 Name:		libsyncml
 Version:	0.4.4
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	C library implementation of the SyncML protocol
 License:	LGPL
 Group:		System/Libraries
@@ -14,7 +15,6 @@ BuildRequires:	wbxml2-devel
 BuildRequires:	openobex-devel
 BuildRequires:	libsoup-devel > 2.2.7-1mdk
 BuildRequires:	bluez-devel
-Requires:	%libname = %version
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
@@ -31,14 +31,13 @@ C library implementation of the SyncML protocol.
 This package is required by applications using the Syncml library
 implementation of SyncML.
 
-%package -n %{libname}-devel
+%package -n %{develname}
 License:	LGPL
 Group:		System/Libraries
 Summary:	Development package for C library implementation of the SyncML protocol
 Requires:	%libname = %version-%release
-Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %{libname}-devel
+%description -n %{develname}
 C library implementation of the SyncML protocol
 
 This package is required to compile applications that use the Syncml
@@ -76,7 +75,7 @@ rm -Rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/*.so.*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_includedir}/%{name}-1.0
 %{_libdir}/*.so
