@@ -48,7 +48,7 @@ library implementation of SyncML
 
 %prep
 %setup -q
-%patch -p 1
+#%patch -p 1
 
 %build
 autoreconf
