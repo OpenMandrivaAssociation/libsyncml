@@ -15,6 +15,7 @@ BuildRequires:	wbxml2-devel
 BuildRequires:	openobex-devel
 BuildRequires:	libsoup-devel > 2.2.7-1mdk
 BuildRequires:	bluez-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 C library implementation of the SyncML protocol
