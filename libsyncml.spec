@@ -4,9 +4,9 @@
 
 Name:		libsyncml
 Version:	0.4.5
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	C library implementation of the SyncML protocol
-License:	LGPL
+License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://libsyncml.opensync.org/
 Source:		http://libsyncml.opensync.org/download/releases/%{version}/%{name}-%{version}.tar.bz2
