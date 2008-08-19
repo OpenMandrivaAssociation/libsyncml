@@ -13,7 +13,8 @@ Source:		http://libsyncml.opensync.org/download/releases/%{version}/%{name}-%{ve
 Patch:      %{name}-0.4.4-cflags.patch
 BuildRequires:	wbxml2-devel
 BuildRequires:	openobex-devel
-BuildRequires:	libsoup-devel > 2.2.7-1mdk
+# Specifically needs 2.2 not 2.4 - AdamW 2008/08
+BuildRequires:	libsoup-2.2-devel
 BuildRequires:	bluez-devel
 BuildRequires:	cmake
 BuildRoot:	%{_tmppath}/%{name}-%{version}
