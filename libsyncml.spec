@@ -1,10 +1,10 @@
-%define libmajor 2
+%define libmajor 0
 %define libname %mklibname syncml %libmajor
 %define develname %mklibname syncml -d
 
 Name:		libsyncml
-Version:	0.4.7
-Release:	%mkrel 1
+Version:	0.4.6
+Release:	%mkrel 3
 Summary:	C library implementation of the SyncML protocol
 License:	LGPLv2+
 Group:		System/Libraries
@@ -73,9 +73,11 @@ rm -Rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-#%{_bindir}/syncml-http-server
-#%{_bindir}/syncml-http-client
+%{_bindir}/syncml-http-server
+%{_bindir}/syncml-http-client
 %{_bindir}/syncml-obex-client
+#%{_mandir}/man1/syncml-http-server.1*
+#%{_mandir}/man1/syncml-obex-client.1*
 
 %files -n %libname
 %defattr(-,root,root)
