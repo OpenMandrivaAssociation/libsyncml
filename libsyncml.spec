@@ -10,7 +10,7 @@ License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://libsyncml.opensync.org/
 Source:		http://libsyncml.opensync.org/download/releases/%{version}/%{name}-%{version}.tar.bz2
-Patch:      %{name}-0.4.4-cflags.patch
+Patch0:		libsyncml-0.4.6-gobject.patch
 BuildRequires:	wbxml2-devel
 BuildRequires:	openobex-devel
 # Specifically needs 2.2 not 2.4 - AdamW 2008/08
@@ -22,19 +22,19 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}
 %description
 C library implementation of the SyncML protocol
 
-%package -n %libname
-License:	LGPL
+%package -n %{libname}
+License:	LGPLv2+
 Group:		System/Libraries
 Summary:	C library implementation of the SyncML protocol
 
-%description -n %libname
+%description -n %{libname}
 C library implementation of the SyncML protocol.
 
 This package is required by applications using the Syncml library
 implementation of SyncML.
 
 %package -n %{develname}
-License:	LGPL
+License:	LGPLv2+
 Group:		System/Libraries
 Summary:	Development package for C library implementation of the SyncML protocol
 Requires:	%libname = %version-%release
@@ -50,6 +50,7 @@ library implementation of SyncML
 
 %prep
 %setup -q
+%patch0 -p1 -b .gobject
 
 %build
 %cmake
