@@ -1,16 +1,16 @@
-%define libmajor 0
+%define libmajor 2
 %define libname %mklibname syncml %libmajor
 %define develname %mklibname syncml -d
 
 Name:		libsyncml
-Version:	0.4.6
-Release:	%mkrel 4
+Version:	0.5.0
+Release:	%mkrel 1
 Summary:	C library implementation of the SyncML protocol
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://libsyncml.opensync.org/
 Source:		http://libsyncml.opensync.org/download/releases/%{version}/%{name}-%{version}.tar.bz2
-Patch0:		libsyncml-0.4.6-gobject.patch
+Patch0:		libsyncml-0.5.0-fix-format-errors.patch
 BuildRequires:	wbxml2-devel
 BuildRequires:	openobex-devel
 # Specifically needs 2.2 not 2.4 - AdamW 2008/08
@@ -50,7 +50,7 @@ library implementation of SyncML
 
 %prep
 %setup -q
-%patch0 -p1 -b .gobject
+%patch0 -p1 -b .format
 
 %build
 %cmake
@@ -75,11 +75,7 @@ rm -Rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%{_bindir}/syncml-http-server
-%{_bindir}/syncml-http-client
-%{_bindir}/syncml-obex-client
-#%{_mandir}/man1/syncml-http-server.1*
-#%{_mandir}/man1/syncml-obex-client.1*
+%{_bindir}/syncml-ds-tool
 
 %files -n %libname
 %defattr(-,root,root)
