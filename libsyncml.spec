@@ -4,7 +4,7 @@
 
 Name:		libsyncml
 Version:	0.4.6
-Release:	%mkrel 6
+Release:	%mkrel 7
 Summary:	C library implementation of the SyncML protocol
 License:	LGPLv2+
 Group:		System/Libraries
