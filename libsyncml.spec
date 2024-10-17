@@ -8,7 +8,7 @@ Release:	%mkrel 7
 Summary:	C library implementation of the SyncML protocol
 License:	LGPLv2+
 Group:		System/Libraries
-URL:		http://libsyncml.opensync.org/
+URL:		https://libsyncml.opensync.org/
 Source:		http://libsyncml.opensync.org/download/releases/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		libsyncml-0.4.6-gobject.patch
 BuildRequires:	wbxml-devel
